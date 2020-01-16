@@ -1,4 +1,6 @@
 # Inventory and Transaction Tracking App
+An updated web application for inventory and transaction tracking written in laravel is being developed.
+
 ## Technologies
 - Frontend: HTML/CSS, Bootstrap
 - Backend: Vanilla PHP
