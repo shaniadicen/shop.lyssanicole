@@ -1,5 +1,9 @@
 # Inventory and Transaction Tracking App
 ## Technologies
+- Frontend: HTML/CSS, Bootstrap
+- Backend: Vanilla PHP
+- Database: MySQL
+
 ## Features
 ## App Credentials
 ## Resources
