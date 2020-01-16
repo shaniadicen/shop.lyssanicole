@@ -1,4 +1,4 @@
-# shop.lyssanicole
+# Inventory and Transaction Tracking App
 ## Technologies
 ## Features
 ## App Credentials
