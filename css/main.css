@@ -35,14 +35,6 @@ h2.pagehead::before {
     border-color: #FFC0CB;
 }
 
-
-/*
-.tasks:hover,
-.tasks:focus {
-    color: #FFC0CB;
-}
-*/
-
 tr .btn {
     width: 30px;
     height: 30px;
@@ -169,4 +161,3 @@ ul[data-pie-id] {
 #container_chart {
     margin: none;
 }
-
