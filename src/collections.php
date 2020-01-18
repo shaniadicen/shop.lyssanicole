@@ -1,50 +1,51 @@
 <?php
-    require_once 'includes/header.inc.php';
-    require_once 'dbh.php';
+  require_once 'includes/header.inc.php';
+  require_once 'dbh.php';
 ?>
-      <script>
-        $(document).ready(function() {
-            $('#collectionTable').dataTable({
-                "lengthChange": false,
-                "ordering": true,
-                "info": false,
-                "aoColumnDefs": [{
-                    'bSortable': false,
-                    'aTargets': [-1]
-                }]
-            });
-        });
-
-    </script>
-    <div class="container">
-       <h2 class="pagehead">Collections <span style="font-size: 20px;color: #FFC0CB" class=" glyphicon glyphicon-th "></span> </h2>
-        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#addCollection"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Collection</a>
-
-        <div class="container">
-            <br>
-            <table id="collectionTable" class="table table-striped table-bordered dt-responsive">
-                <thead>
-                    <th>Collection</th>
-                    <th>Capital</th>
-                    <th></th>
-                </thead>
-                <?php
+<script>
+  $(document).ready(function() {
+      $('#collectionTable').dataTable({
+          "lengthChange": false,
+          "ordering": true,
+          "info": false,
+          "aoColumnDefs": [{
+              'bSortable': false,
+              'aTargets': [-1]
+          }]
+      });
+  });
+</script>
+  <div class="container">
+     <h2 class="pagehead">Collections <span style="font-size: 20px;color: #FFC0CB" class=" glyphicon glyphicon-th "></span> </h2>
+      <a href="#" class="btn btn-default" data-toggle="modal" data-target="#addCollection">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Add Collection
+      </a>
+      <div class="container">
+          <br>
+          <table id="collectionTable" class="table table-striped table-bordered dt-responsive">
+              <thead>
+                  <th>Collection</th>
+                  <th>Capital</th>
+                  <th></th>
+              </thead>
+              <?php
                 $sql = "SELECT id, name, capital FROM collections WHERE name != 'Clearance Sale' order by id";
                 $result = mysqli_query($conn, $sql);
-                while ($row = mysqli_fetch_assoc($result)){
+                while ($row = mysqli_fetch_assoc($result)) {
                     $id = $row['id'];
                     $name = $row['name'];
                     $capital = number_format($row['capital']);
-                    
+
                     echo <<<FRAG
                     <tr>
                         <td class="collectionNametd"><a href='collection.php?name=$name'>$name</a></td>
                         <td>&#x20B1; $capital</td>
                         <td class="no-sort">
                         <a href="editcollection.php?collectionid=$id&collection=$name&capital=$capital" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                        
+
                         <a href="#" id="removeCollectionButton" class="btn btn-default"  data-toggle="modal" data-target="#remove$id"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #e74c3c;"></span></a>
-                        
+
                             <!-- Delete Collection Modal -->
                         <div id="remove$id" class="modal fade" role="dialog">
                             <div class="modal-dialog">
@@ -66,14 +67,12 @@
                         </div>
                         </td>
                     </tr>
-FRAG;
+  FRAG;
                 }
-                
-            ?>
-        </table>
-    </div>
+          ?>
+      </table>
+  </div>
 </div>
-
     <!-- Modal -->
     <div id="addCollection" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -102,10 +101,4 @@ FRAG;
             </div>
         </div>
     </div>
-
-
- 
-
-    <?php
-    require_once 'includes/footer.inc.php';
-?>
+<?php require_once 'includes/footer.inc.php'; ?>
