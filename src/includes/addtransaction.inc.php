@@ -1,10 +1,10 @@
 <?php
-require '../dbh.php';
+  require '../dbh.php';
 
-$customerName     = $_POST['customer'];
+  $customerName     = $_POST['customer'];
 
-$sql = "INSERT INTO transactions (customer) VALUES ('$customerName')";
-$result = mysqli_query($conn, $sql);
+  $sql = "INSERT INTO transactions (customer) VALUES ('$customerName')";
+  $result = mysqli_query($conn, $sql);
 
-mysqli_close($conn);
-header("Location: ../transactions.php");
+  mysqli_close($conn);
+  header("Location: ../transactions.php");
